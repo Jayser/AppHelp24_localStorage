@@ -171,7 +171,7 @@
 					$msg.val($msg.val() + $(e.target).attr('data-smile-code'));
 				},
 				clearMsg:function() {
-					if(confirm('Вы уверены,что хотите удалить всю историю?')){
+					if(confirm('Вы уверены,что хотите удалить всю историю (localStorage)?')){
 						selectors.$content.removeAttr('style').empty();
 						localStorage.clear();
 						help.dinamicHeight();
@@ -236,7 +236,7 @@
 						alert('Максимально допустимое количество символов 255!!!');
 					} else if(attrs.msg === ''){
 						help.clearArea(); // CLEAR TEXTAREA
-						return alert('Необходимо вести текст сообщения!');
+						return alert('Необходимо ввести текст сообщения!');
 					} else {
 						new App.Views.addMsg({model: attrs, clearMsg:true});
 					}
