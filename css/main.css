@@ -1,0 +1,400 @@
+/* RESET CSS */
+body{
+    margin: 0;
+    background-color: #ffffff;
+    color: #000;
+    font-size: 16px;
+    font-family: Arial,Helvetica,sans-serif;
+    line-height: 1;
+}
+p,
+pre,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    margin: 0;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
+    vertical-align: middle;
+    -ms-interpolation-mode: bicubic;
+}
+label{
+    cursor: pointer;
+}
+form,
+figure,
+figcaption {
+    margin: 0;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+button:focus,
+input:focus {
+    outline: none;
+}
+button,
+input,
+select,
+textarea {
+    margin: 0;
+    vertical-align: baseline;
+    *vertical-align: middle;
+}
+button,
+input {
+    line-height: normal;
+}
+button,
+html input[type="button"], 
+input[type="reset"],
+input[type="submit"] { 
+    cursor: pointer;
+    -webkit-appearance: button; 
+    *overflow: visible;  
+}
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; 
+    padding: 0; 
+    *height: 13px; 
+    *width: 13px; 
+}
+textarea {
+    overflow: auto; 
+    vertical-align: top; 
+}
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly],
+select[readonly],
+textarea[readonly] {
+  background-color: #eeeeee;
+  cursor: not-allowed;
+}
+input[type="radio"][disabled],
+input[type="checkbox"][disabled],
+input[type="radio"][readonly],
+input[type="checkbox"][readonly] {
+  background-color: transparent;
+}
+fieldset {
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+    border: 1px solid #c0c0c0;
+}
+legend { 
+    padding: 0;
+    border: 0;
+    white-space: normal; 
+    *margin-left: -7px; 
+}
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+ul,
+ol{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* CSS Sticky Footer */
+html,
+body,
+#wrap,
+#help24 {height: 100%;}
+
+#help24{
+    min-height: 250px;
+}
+
+    .help24-wrapper {
+        min-height: 100%;
+        height: auto;
+    }
+
+        .help24-content {
+            overflow: auto;
+        }
+
+    .help24-footer {
+        position: relative;
+        margin-top: -150px;
+        height: 150px;
+    }
+
+/* LIB */
+.text-right{
+    text-align: right;
+}
+.text-capitalize{
+    text-transform:capitalize;
+}
+.offset-all-0{
+    margin: 0;
+}
+.offset-t-3{
+    margin-top: 3px;
+}
+.offset-r-10{
+    margin-right: 10px;
+}
+.offset-inall-5{
+    padding: 5px;
+}
+.offset-all-10{
+    margin: 10px;
+}
+.offset-int-0{
+    padding-top: 0;
+}
+.pull-left {
+    float: left;
+}
+.pull-right {
+    float: right;
+}
+.overflow-hidden{
+    overflow: hidden;
+}
+.text-bold{
+    font-weight: bold;
+}
+.text-13{
+    font-size: 13px;
+}
+.text-12{
+    font-size: 12px;
+}
+.text-10{
+    font-size: 10px;
+}
+.line-18{
+    line-height: 18px;
+}
+.text-light_blue{
+    color: #627aad;
+}
+.text-blood{
+    color: #b11313;
+}
+.text-light_grey{
+    color: #666;
+}
+.relative{
+    position: relative;
+}
+/* Custom CSS */
+:focus{
+    outline: none;
+}
+/* Help24 */
+.help24-header{
+    padding: 0 10px;
+    background:#649b04;
+    box-shadow: 0 2px 1px #ccc;
+    color:#fff;
+    line-height: 50px;
+}
+
+.help24-content{
+    background:#fff;
+}
+    .help24-message{
+        position: relative;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+    .help24-message:last-child{
+        margin-bottom: 0;
+    }
+
+.help24-footer{
+    outline: 1px solid #d3d3d2;
+    background:#f0f0ef;
+}
+    .help24-menu{
+        margin-bottom: 2px;
+    }
+        .help24-menu > i,
+        [data-smile-code]{
+            display: inline-block;
+            vertical-align: top;
+            zoom: 1;
+            *display: inline;
+        }
+        .help24-menu i{
+            margin-right: -3px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .help24-menu > i{
+            padding: 5px;
+        }
+        .help24-menu i:hover{
+            background-color: #333;
+        }
+            .help24-menu > i:after{
+                background-image: url(../img/help24_menu.png);
+                background-repeat: no-repeat;
+            }
+            .help24-menu > i:after,
+            [data-smile-code]:after{
+                display: block;
+                width: 16px; 
+                height: 16px;
+                content: ' ';
+            }
+            .help24-menu .help24-sound,
+            .help24-menu .help24-sound:after{
+                width: 19px;
+            }
+            .help24-menu .help24-sound.off:after{
+                width: 12px;
+            }
+            .help24-upload:after{
+                background-position: 0 0;
+            }
+            .help24-smiles:hover .help24-smile-list{
+                display: block;
+            }
+            .help24-upload:hover:after{
+                background-position: 0 -16px;
+            }
+            .help24-smiles:after{
+                background-position: -17px 0;
+            }
+            .help24-smiles:hover:after{
+                background-position: -17px -16px;
+            }
+            .help24-sound:after{
+                background-position: -34px 0;
+            }
+            .help24-sound:hover:after {
+                background-position: -34px -16px;
+            }
+            .help24-smile-list{
+                position: absolute;
+                top: 14px;
+                left: 50%;
+                display: none;
+                margin-left: -53px;
+                padding-top: 2px;
+                width: 106px;
+                
+            }
+                .help24-smile-container{
+                    padding-top: 2px;
+                    border-radius: 5px;
+                    background: #666;
+                    box-shadow: 1px 1px 2px #ccc;
+                }
+                    .help24-smile-list:before{
+                        display: block;
+                        margin: 0 auto;
+                        width: 0;
+                        border-width: 10px;
+                        border-style: solid;
+                        border-color: transparent transparent #666 transparent ;
+                        content: ' '; 
+
+                    }
+                    .help24-smile-list i{
+                        padding: 2px;
+                    }
+                        .help24-smile-list i:after,
+                        [data-smile-code]:after{
+                            background-image: url(../img/help24_smilies.png);
+                            background-repeat: no-repeat;
+                        }
+                        .help24-smile:after{
+                            background-position: 0 0;
+                        }
+                        .help24-upset:after{
+                            background-position: -16px 0;
+                        }
+                        .help24-nowords:after{
+                            background-position: -32px 0;
+                        }
+                        .help24-laughter:after{
+                            background-position: -48px 0;
+                        }
+                        .help24-shock:after{
+                            background-position: -64px 0;
+                        }
+                        .help24-wink:after{
+                            background-position: 0 -16px;
+                        }
+                        .help24-sleep:after{
+                            background-position: -16px -16px;
+                        }
+                        .help24-steep:after{
+                            background-position: -32px -16px;
+                        }
+                        .help24-anger:after{
+                            background-position: -48px -16px;
+                        }
+                        .help24-offense:after{
+                            background-position: -64px -16px;
+                        }
+    
+    .b-forma-style-help24{
+        color: #666;
+    }
+        .b-button-help24{
+            min-width: 85px;
+            text-align: center;
+            text-decoration: none;
+            line-height: 24px;
+            position: relative;
+        }
+        .b-button-help24:hover{
+            text-decoration: none;
+        }
+        .b-button-help24.grey{
+            border: 1px solid #dadad9;
+            background: #F4F4F3;
+        }
+        .b-button-help24.grey:hover{
+            border: 1px solid #c4c4c3;
+            background: #fcfcfb;
+        }
+        .b-button-help24.green{
+            border: 1px solid #578703;
+            background: #649b04;
+            color: #fff;
+        }
+        .b-button-help24.green:hover{
+            background: #7AB80F;
+        }
+        .b-button-help24.notification:hover:after{
+            background: #649b04;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            line-height: 26px;
+            content: 'Ctrl + Enter';
+        }
+        .b-textarea-help24{
+            box-sizing: border-box;
+            padding: 5px;
+            width: 100%;
+            height: 77px;
+            border:1px solid #dadad9;
+            box-shadow: 1px 1px 3px #eee inset;
+            color: #666;
+            font-size: .75em;
+        }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Помощь онлайн!</title>
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<div id="wrap" class="wrapper"></div><!-- WRAPPER -->
+	
+	<script type="text/help24-template" id="help24-template-root"><!-- help24 DOM START -->
+		<div class="help24-wrapper">
+			<header class="help24-header"><%= title %></header>
+			<div class="help24-content"></div>
+		</div>
+		<footer class="help24-footer b-forma-style-help24">
+			<div class="offset-inall-5">
+				<div class="help24-menu inline-block">
+					<!-- i class="help24-sound off"></i -->
+					<i class="help24-sound"></i>
+					<i class="help24-upload"></i>
+					<i class="help24-smiles relative">
+						<div class="help24-smile-list">
+							<div class="help24-smile-container">
+								<i class="help24-smile" data-smile-code="(:smile:)"></i>
+								<i class="help24-upset" data-smile-code="(:upset:)"></i>
+								<i class="help24-nowords" data-smile-code="(:nowords:)"></i>
+								<i class="help24-laughter" data-smile-code="(:laughter:)"></i>
+								<i class="help24-shock" data-smile-code="(:shock:)"></i>
+								<i class="help24-wink" data-smile-code="(:wink:)"></i>
+								<i class="help24-sleep" data-smile-code="(:sleep:)"></i>
+								<i class="help24-steep" data-smile-code="(:steep:)"></i>
+								<i class="help24-anger" data-smile-code="(:anger:)"></i>
+								<i class="help24-offense" data-smile-code="(:offense:)"></i>
+							</div>
+						</div>
+					</i>
+				</div>
+				<textarea id="help24-textarea" class="b-textarea-help24" placeholder="Введите текст сообщения..."></textarea>
+			</div>
+			<div class="text-right offset-inall-5 offset-int-0">
+				<button id="help24-dialog-clear" class="b-button-help24 grey">Очистить</button>
+				<button id="help24-submit" class="b-button-help24 green notification">Отправить</button>
+			</div>
+		</footer>
+	</script><!-- help24 DOM END -->
+
+	<script type="text/help24-template" id="help24-template-message"><!-- MESSAGE START -->
+		<article class="help24-message offset-all-10 overflow-hidden relative" id="<%= keyMsg %>">
+			<div class="pull-left offset-r-10">
+				<img src="<%= avatar %>" alt="">
+			</div>
+			<div class="overflow-hidden">
+				<div class="overflow-hidden">
+					<div class="pull-left text-13 text-bold text-capitalize"><%= userName %></div>
+					<div class="pull-right">
+						<time class="text-light_grey text-10"><%= timePost %></time>
+					</div>
+				</div>
+				<p class="text-12 line-18 offset-all-0 offset-t-3"><%= msg %></p>
+			</div>
+		</article>
+	</script><!-- MESSAGE END -->
+
+	<script type="text/javascript" src="js/lib.js"></script><!-- jQuery v1.10.2 * Underscore.js 1.5.2 * Backbone.js 1.1.0 -->
+	<script type="text/javascript" src="js/main.js"></script><!-- AppHelp24 (CHAT) -->
+
+</body>
+</html>
