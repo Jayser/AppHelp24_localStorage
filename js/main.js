@@ -19,15 +19,16 @@
 		};
 
 		// ISLOCALSTORAGE
-		help.isLocalStorageAvailable = (function() {
+		help.isLocalStorageAvailable = function() {
+			var mod = 'modernizr';
 			try {
-				localStorage.setItem('.', '.');
-				localStorage.removeItem('.');
+				localStorage.setItem(mod, mod);
+				localStorage.removeItem(mod);
 				return true;
 			} catch(e) {
 				return false;
 			}
-		}());
+		};
 
 		/* 
 		 * GET CURRENT DATE
@@ -81,13 +82,20 @@
 		}
 
 		// GET MESSAGES FROM LOCAL STORAGE
-		help.getCollection = function(ls) {
-			var collection = _.keys(ls).filter(function(data) {
-				return /^help24_/.test(data);
-			}).map(function(data) {
-				return JSON.parse(ls.getItem(data));
-			});
-			return collection;
+		help.getCollection = function(locStorage) {
+			
+			var keys = _.keys(locStorage),
+				filterKeys = _.filter(keys,function(data) {
+					return /^help24_/.test(data);
+				}),
+				models = _.map(filterKeys,function(data) {
+					return JSON.parse(locStorage.getItem(data));
+				});
+
+			return {
+				models: models,
+				keys  : filterKeys
+			};
 		};
 
 		// REPLACE SMILE
@@ -123,12 +131,20 @@
 			}
 		};
 
+		// CLEAR TEXTAREA
+		help.clearArea = function() {
+			_.delay(function() {
+				selectors.$textarea.val('')
+				selectors.$chCount.html("Осталось символов: <span>255</span>");
+			}, 1);
+		};
+
 
 		/* * * * * * * * * * * * * END HELPERS * * * * * * * * * * * * */
 
 
 		// CHECK IS LOCAL STORAGE AVAILABLE
-		if (help.isLocalStorageAvailable){
+		if (help.isLocalStorageAvailable()){
 
 			// SET USER NAME
 			help.userName = (function() {
@@ -162,6 +178,18 @@
 					}
 				},
 				addMsg:function(e) {
+
+					// CHARACTER LIMIT
+					var ln    = selectors.$textarea.val().length,
+						count = 255 - (+ln);
+
+					selectors.$chCount.html("Осталось символов: <span>"+count+"</span>");
+
+					if (count <= 0 && e.which !== 0){
+						selectors.$textarea.val(selectors.$textarea.val().substring(0, ln - 1));
+					}
+
+					// Add Messages
 					if(e.ctrlKey && e.keyCode === 13 || $(e.target).attr('id') === 'help24-submit'){
 
 						var msgText = help.compileSmile(selectors.$textarea.val().trim().htmlentities()),
@@ -194,6 +222,7 @@
 			selectors.$footer 	   = $('.help24-footer');
 			selectors.$textarea    = $('#help24-textarea');
 			selectors.$submit 	   = $('#help24-submit');
+			selectors.$chCount 	   = $('#chCount');
 			selectors.$dialogСlear = $('#help24-dialog-clear');
 
 			// MODEL MESSAGES 
@@ -202,8 +231,11 @@
 					'avatar':'img/avatar.gif'
 				},
 				validate:function (attrs){
-					if (attrs.msg === ''){
-						_.delay(function() {selectors.$textarea.val('')}, 1);
+					if (attrs.msg.length >= 256){
+						console.log( attrs.msg.length );
+						alert('Максимально допустимое количество символов 255!!!');
+					} else if(attrs.msg === ''){
+						help.clearArea(); // CLEAR TEXTAREA
 						return alert('Необходимо вести текст сообщения!');
 					} else {
 						new App.Views.addMsg({model: attrs, clearMsg:true});
@@ -235,7 +267,7 @@
 						this.$el.append(help.tempMsg(this.model));
 
 						// CLEAR TEXTAREA
-						if( opt ) _.delay(function() {selectors.$textarea.val('')}, 1);
+						if( opt ) help.clearArea();
 					};
 
 					// GET & APPEND MESSAGES FROM LOCAL STORAGE
@@ -257,23 +289,19 @@
 				}
 			});
 
-			new App.Views.addMsg({collection:help.getCollection(localStorage)});
+			new App.Views.addMsg({collection:(help.getCollection(localStorage)).models });
 
 			help.localStorageListener = function() {
-				var domKey = [],localStorageKey = [];
+				var domKey = [];
 				
 				// GET MESSAGES FROM DOM
 				_.each($('.help24-message'), function(key) {
 					domKey.push($(key).attr('id'))
-				});
-
-				// GET MESSAGES FROM LOCAL STORAGE
-				_.each(help.getCollection(localStorage),function(key) {
-					localStorageKey.push(key.keyMsg)
-				});
+				});				
 
 				// DIFFERANCE BETWEEN LOCAL STORAGE & DOM
-				var difference = $.grep((help.getCollection()).keys,function(x) {return $.inArray(x, domKey) < 0});
+				var difference = $.grep(help.getCollection(localStorage).keys,function(x) {return $.inArray(x, domKey) < 0});
+
 
 				if(difference.length !== 0) {
 					_.each(difference,function(msg) {
