@@ -111,7 +111,7 @@
 		// SET SCROLL
 		help.setScroll = function(el) {
 			help.dinamicHeight();
-			el.animate({ scrollTop: el[0].scrollHeight },1000);
+			el.scrollTop(el[0].scrollHeight);
 		};
 
 		// USER IDENTIFICATION
