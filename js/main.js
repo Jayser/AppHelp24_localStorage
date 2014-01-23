@@ -20,10 +20,10 @@
 
 		// ISLOCALSTORAGE
 		help.isLocalStorageAvailable = function() {
-			var mod = 'modernizr';
+			var test = 'AppHelp24';
 			try {
-				localStorage.setItem(mod, mod);
-				localStorage.removeItem(mod);
+				localStorage.setItem(test, test);
+				localStorage.removeItem(test);
 				return true;
 			} catch(e) {
 				return false;
