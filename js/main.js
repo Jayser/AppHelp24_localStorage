@@ -68,11 +68,11 @@
 		}
 
 		// TRIM SPACES
-		if(!String.prototype.trim){
+		/*if(!String.prototype.trim){
 			String.prototype.trim = function() {
 				return this.replace(/^\s+|\s+$/gm,'');
 			};
-		}
+		}*/
 
 		// REPLACE HTML SYMBOLS
 		if(!String.prototype.htmlentities){
@@ -189,10 +189,10 @@
 						selectors.$textarea.val(selectors.$textarea.val().substring(0, ln - 1));
 					}
 
-					// Add Messages
+					// VALIDATE MSG
 					if(e.ctrlKey && e.keyCode === 13 || $(e.target).attr('id') === 'help24-submit'){
 
-						var msgText = help.compileSmile(selectors.$textarea.val().trim().htmlentities()),
+						var msgText = selectors.$textarea.val().trim().htmlentities(),
 							сTime = new Date().currentTime('hmsM'),
 							сDate = new Date().currentDate('dmy');
 
@@ -256,6 +256,9 @@
 
 					// GET & ADD & APPEND MESSAGE
 					if (this.model) {
+
+
+						this.model.msg = help.compileSmile(this.model.msg);
 
 						// ADD TO LOCAL STORAGE
 						localStorage.setItem(this.model.keyMsg, JSON.stringify(this.model));
